@@ -1,14 +1,14 @@
 const { io } = require('socket.io-client');
 const socket = io('http://localhost:3002/caps');
 
-socket.emit('JOIN', 'driver');
-const createTransitOrder = require('./transitOrder');
+
+const createTransitOrder = require('./in transit');
 const transitOrder = createTransitOrder(socket);
 
 const createDeliveryOrder = require('./deliverOrder');
 const deliverOrder = createDeliveryOrder(socket);
 
-
+socket.emit('JOIN', 'driver');
 
 socket.on('PICKUP', transitOrder);
 
