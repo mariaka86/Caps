@@ -18,6 +18,8 @@ caps.on('connection', (socket) => {
 
   socket.on('Join',(room)=>{
     console.log(`You've joined the ${room} room`);
+    // Actually joining a room
+    socket.join(room);
   });
 
   socket.on('PICKUP', (payload)=>{

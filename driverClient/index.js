@@ -2,10 +2,10 @@ const { io } = require('socket.io-client');
 const socket = io('http://localhost:3002/caps');
 
 
-const createTransitOrder = require('./in transit');
+const createTransitOrder = require('./transit');
 const transitOrder = createTransitOrder(socket);
 
-const createDeliveryOrder = require('./deliverOrder');
+const createDeliveryOrder = require('./deliver');
 const deliverOrder = createDeliveryOrder(socket);
 
 socket.emit('JOIN', 'driver');
